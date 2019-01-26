@@ -1,8 +1,8 @@
 {% set name = "textwrap3" %}
-{% set version = "0.9.1" %}
+{% set version = "0.9.2" %}
 {% set bundle = "zip" %}
 {% set hash_type = "sha256" %}
-{% set hash = "7f044d25f0ca4d7554718d9abdc06f68946bfb64008dfc40d9590945e50c1120" %}
+{% set hash = "5008eeebdb236f6303dcd68f18b856d355f6197511d952ba74bc75e40e0c3414" %}
 
 package:
   name: {{ name|lower }}

@@ -1,7 +1,6 @@
 {% set name = "textwrap3" %}
 {% set version = "0.9.2" %}
 {% set bundle = "zip" %}
-{% set hash_type = "sha256" %}
 {% set hash = "5008eeebdb236f6303dcd68f18b856d355f6197511d952ba74bc75e40e0c3414" %}
 
 package:
@@ -11,22 +10,24 @@ package:
 source:
   fn: {{ name }}-{{ version }}.{{ bundle }}
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  sha256: {{ hash }}
 
 build:
-  number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 1
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   noarch: python
 
 requirements:
-  build:
-    - python
+  host:
+    - python {{ python_min }}
     - pip
 
   run:
-    - python
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - textwrap3
 
